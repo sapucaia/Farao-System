@@ -1,0 +1,16 @@
+Leia-me
+
+Configuração de pastas:
+
+Arquivos da aplicação
+app/
+	Modelos
+	models/
+	Controladores
+	controllers/
+	Visao
+	views/
+Arquivos de Configuração	
+conf/
+Arquivos Nucleo Acesso ao Banco de Dados
+core/
