@@ -1,15 +1,19 @@
 <?php
 
+require '../../conf/lock.php';
+
 class Compra{
 
   private $idCompra;
   private $fkIdFornecedor;
   private $dataCompra;
-  private $produtos;
+  private $produtoNotaCompraRecord;
 
-  public function __construct($fkIdFornecedor = '', $dataCompra = ''){
+  public function __construct($idCompra = '', $fkIdFornecedor = '', $dataCompra = ''){
+	$this->idCompra = $idCompra;
     $this->fkIdFornecedor = $fkIdFornecedor;
     $this->dataCompra = $dataCompra;
+	$this->produtoNotaCompraRecord = new ProdutonotacomprasRecord();
   }
 
   public function setIdCompra($idCompra){
@@ -37,7 +41,14 @@ class Compra{
   }
   
   public function getProdutos(){
-    
+    return $this->produtoRecord->selecionarPorId($this->idCompra);
+  }
+  
+  public function addProdutoCompra($produto, $qtdProduto){
+	$dados['fkidproduto'] = $produto->getIdProduto();
+	$dados['fkidcompra'] = $this->getIdCompra();
+	$dados['qtdprodutocompra'] = $qtdProduto;
+    return $this->produtoNotaCompra->cadastrar($dados);
   }
 
 }
