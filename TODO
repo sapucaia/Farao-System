@@ -1,2 +1,13 @@
-$produtos = $compra->getProdutos();
+Classes a fazer:
+  ClienteEndereco         - Wallace
+  FornecedorEndereco      - Wallace
+  FornecedorRepresentante - Caique
+  ItemCaixa               - Fabio
+  RepresentanteEndereco   - Paavo
+  RepresentateTelefone    - Paavo
+
+Update de classes prontas:
+  Fazer metodo listar - TODOS
+  Fazer metodos de pesquisa em atributos mais importantes - TODOS
+  metodo listar Array duplo - TODOS
 
