@@ -8,10 +8,10 @@ class Compra{
   private $produtoNotaCompraRecord;
 
   public function __construct($idCompra = '', $fkIdFornecedor = '', $dataCompra = ''){
-	$this->idCompra = $idCompra;
+	  $this->idCompra = $idCompra;
     $this->fkIdFornecedor = $fkIdFornecedor;
     $this->dataCompra = $dataCompra;
-	$this->produtoNotaCompraRecord = new ProdutonotacomprasRecord();
+	  $this->produtoNotaCompraRecord = new ProdutonotacomprasRecord();
   }
 
   public function setIdCompra($idCompra){
@@ -39,14 +39,18 @@ class Compra{
   }
   
   public function getProdutos(){
-    return $this->produtoRecord->selecionarPorId($this->idCompra);
+    return $this->produtoNotaCompraRecord->selecionarProdutosPorCompra($this->idCompra);
   }
   
   public function addProdutoCompra($produto, $qtdProduto){
-	$dados['fkidproduto'] = $produto->getIdProduto();
-	$dados['fkidcompra'] = $this->getIdCompra();
-	$dados['qtdprodutocompra'] = $qtdProduto;
-    return $this->produtoNotaCompra->cadastrar($dados);
+	  $dados['fkidproduto'] = $produto->getIdProduto();
+	  $dados['fkidcompra'] = $this->idCompra();
+	  $dados['qtdprodutocompra'] = $qtdProduto;
+    return $this->produtoNotaCompraRecord->cadastrar($dados);
+  }
+
+  public function getFornecedor(){
+
   }
 
 }

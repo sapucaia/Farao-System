@@ -5,10 +5,21 @@ class Cliente{
   private $idCliente;
   private $nomeCliente;
   private $emailCliente;
+  private $clienteTelefoneRecord;
 
-  public function __construct($nomeCliente = '', $emailCliente = ''){
+  public function __construct($idCliente = '', $nomeCliente = '', $emailCliente = ''){
+    $this->idCliente = $idCliente;
     $this->nomeCliente = $nomeCliente;
     $this->emailCliente  = $emailCliente;
+    $this->clienteTelefoneRecord = new ClientetelefonesRecord();
+  }
+
+  public function setIdCliente($idCliente){
+    $this->idCliente = $idCliente;
+  }
+
+  public function getIdCliente(){
+    return $this->idCliente;
   }
 
   public function setNomeCliente($nomeCliente){
@@ -25,6 +36,12 @@ class Cliente{
 
   public function getEmailCliente(){
     return $this->emailCliente;
+  }
+
+  public function addTelefone($telefone){
+    $dados['fkidcliente'] = $this->getIdCliente();
+    $dados['fkidtelefone'] = $telefone->getIdTelefone();
+    return $this->clienteTelefoneRecord->cadastrar($dados);  
   }
 
 }

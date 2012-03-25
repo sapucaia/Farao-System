@@ -11,26 +11,21 @@
  * @author wallace
  */
 class Conta {
-private $idConta;
-private $dataVencimento;
-private $dataPagamento;
-private $valor;
-private $descricao;
-private $status;
 
+    private $idConta;
+    private $dataVencimento;
+    private $dataPagamento;
+    private $valor;
+    private $descricao;
+    private $status;
 
-    function __construct($dataVencimento='', $dataPagamento='', $valor='', $descricao='', $status='') {
+    public function __construct($dataVencimento='', $dataPagamento='', $valor='', $descricao='', $status='') {
         $this->dataVencimento = $dataVencimento;
         $this->dataPagamento = $dataPagamento;
         $this->valor = $valor;
         $this->descricao = $descricao;
         $this->status = $status;
     }
-    
-//    function __construct(){
-//        return;
-//    }
-
 
     public function getIdConta() {
         return $this->idConta;
@@ -79,16 +74,7 @@ private $status;
     public function setStatus($status) {
         $this->status = $status;
     }
-    
-    
-
-
-
-
-
-
-
-
 
 }
+
 ?>
