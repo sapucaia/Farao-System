@@ -5,12 +5,16 @@ require '../../conf/lock.php';
 $compraRecord = new ComprasRecord();
 
 
-echo 'Texto';
-//$compra = $compraRecord->getCompra(1);
+echo 'Texto <br/>';
+$compra = $compraRecord->getCompra(1);
 
-//$produtoRecord = new ProdutosRecord();
+echo $compra->getIdCompra() . '<br/>';
 
+$produtoRecord = new ProdutosRecord();
+echo 'Texto 2 <br/>';
 //$produto = $produtoRecord->getProduto(1);
+
+//echo $produto->getNomeProduto() . '<br/>';
 
 //echo $compra->addProdutoCompra($produto, 3);
 

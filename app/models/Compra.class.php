@@ -1,7 +1,5 @@
 <?php
 
-require '../../conf/lock.php';
-
 class Compra{
 
   private $idCompra;

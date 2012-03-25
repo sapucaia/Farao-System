@@ -4,7 +4,7 @@ class Produto{
 
   private $idProduto;
   private $fkIdFornecedor;
-  private $nomeproduto;
+  private $nomeProduto;
   private $valor;
   private $descricao;
   

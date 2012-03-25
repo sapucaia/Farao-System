@@ -1,12 +1,13 @@
 <?php
 
-require '../../conf/lock.php';
-
 class ProdutosRecord extends ManipulaBanco{
 
   public function getProduto($idProduto){
-    $criterio = new TCriteria(new TFilter('idProduto', '=', $idProduto));
-    $p = $this->selecionarColecao($criterio);
+    /*$criteria = new TCriteria();
+	$criteria->add(new TFilter('idProduto', '=', $idProduto));
+    $p = $this->selecionarColecao($criteria);
+    */
+    $p = $this->executarPesquisa("SELECT * FROM produto WHERE idproduto = " . $idProduto);
 	$produto = new Produto($p['IDPRODUTO'][1],
 						   $p['FKIDFORNECEDOR'][1],
 						   $p['NOMEPRODUTO'][1],
