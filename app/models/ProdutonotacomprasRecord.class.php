@@ -11,22 +11,22 @@ class ProdutonotacomprasRecord extends ManipulaBanco{
   public function selecionarProdutosPorCompra($idCompra){
     $criteria = new TCriteria();
     $criteria->add(new TFilter('fkidcompra','=',$idCompra));
-
-    $c = $this->selecionarColecao($criteria);
-    
+    $c = $this->selecionarColecao($criteria);   
     for($i=1; $i<= count($c['FKIDCOMPRA']); $i++){
       $produtosRecord = new ProdutosRecord();
-      $p = $produtosRecord->getProduto($c['FKIDPRODUTO'][$i]);
-      $qtds[$i] = $c['QTDPRODUTOCOMPRA'][$i];      
+      $p = $produtosRecord->getProduto($c['FKIDPRODUTO'][$i]);      
       $this->produtosCompra[$i] = $p;
-      
     }
-    $retorno = array_merge($this->produtosCompra, $qtds); 
-    
-    
-    return $retorno;
-
-    //return $this->selecionarColecao($criteria);
+    return $produtosCompra;
+  }
+  
+  public function selecionarQuantidadesProdutoPorCompra($idCompra, $idProduto){
+	$criteria = new TCriteria();
+    $criteria->add(new TFilter('fkidcompra','=',$idCompra));
+	$criteria->add(new TFilter('fkidproduto', '=', $idProduto));
+	$c = $this->selecionarColecao($criteria);
+	$qtds = $c['QTDPRODUTOCOMPRA'][1]; 
+	return $qtds;
   }
 
 }

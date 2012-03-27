@@ -30,6 +30,36 @@ class ProdutosRecord extends ManipulaBanco{
 						   $p['DESCRICAO'][1]);
 	  return $produto;
   }
+  
+  public function selecionarProdutoPorNome($nomeProduto){
+    $criteria = new TCriteria();
+	$criteria->add(new TFilter('nomeproduto', 'LIKE', $nomeProduto));
+    $p = $this->selecionarColecao($criteria);
+	  for($i=1;$i<=count($p['IDPRODUTO']);$i++){
+	    $this->produtos[$i] = new Produto($p['IDPRODUTO'][$i], 
+								$p['FKIDFORNECEDOR'][$i],
+								$p['NOMEPRODUTO'][$i],
+                $p['VALOR'][$i],
+                $p['DESCRICAO'][$i]);
+	  }
+
+	  return $this->produtos;
+  }
+  
+  public function selecionarProdutoPorDescricao($descricao){
+    $criteria = new TCriteria();
+	$criteria->add(new TFilter('descricao', 'LIKE', $descricao));
+    $p = $this->selecionarColecao($criteria);
+	  for($i=1;$i<=count($p['IDPRODUTO']);$i++){
+	    $this->produtos[$i] = new Produto($p['IDPRODUTO'][$i], 
+								$p['FKIDFORNECEDOR'][$i],
+								$p['NOMEPRODUTO'][$i],
+                $p['VALOR'][$i],
+                $p['DESCRICAO'][$i]);
+	  }
+
+	  return $this->produtos;
+  }
 
   public function cadastrar($produto){
     $dados['fkIdForncedor'] = $produto->getFkIdFornecedor();

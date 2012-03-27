@@ -1,13 +1,8 @@
 <?php
 
-class ItemCaixaRecord extends ManipulaBanco {
+class ItemcaixasRecord extends ManipulaBanco {
 
-  private $itemCaixa;
-
-  public function cadastrar($itemCaixa){
-    $dados['fkItemCaixa'] = $itemCaixa->getFkItemCaixa();
-    $dados['fkIdCaixa'] = $itemCaixa->getFkIdCaixa(); 
-    $dados['qtdItemCaixa'] = $itemCaixa->getQtdItemCaixa();
+  public function cadastrar($dados){
     return $this->salvar($dados);
   }
 

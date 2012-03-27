@@ -1,11 +1,10 @@
 <?php
 
-class ClientetelefonesRecord extends ManipulaBanco{
+class RepresentantetelefonesRecord extends ManipulaBanco{
 
   public function cadastrar($dados){
     return $this->salvar($dados);
   }
-
 
 }
 
