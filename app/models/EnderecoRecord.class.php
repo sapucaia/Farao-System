@@ -17,6 +17,7 @@ class EnderecoRecord extends ManipulaBanco {
     public function listar() {
         $criteria = new TCriteria;
         $aux = $this->selecionarColecao($criteria);
+
         for ($i = 1; $i <= count($aux['IDENDERECO']); $i++) {
             $this->enderecos[$i] = new Enderecos($aux['IDENDERECO'][$i],
                             $aux['LOGRADOURO'][$i],
