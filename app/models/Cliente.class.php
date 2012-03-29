@@ -11,7 +11,7 @@ class Cliente{
     $this->idCliente = $idCliente;
     $this->nomeCliente = $nomeCliente;
     $this->emailCliente  = $emailCliente;
-    $this->clienteTelefoneRecord = new ClientetelefonesRecord();
+    $this->clienteTelefoneRecord = new ClienteTelefonesRecord();
   }
 
   public function setIdCliente($idCliente){

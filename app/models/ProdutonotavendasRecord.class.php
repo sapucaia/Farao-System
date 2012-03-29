@@ -10,7 +10,7 @@ class ProdutonotavendasRecord extends ManipulaBanco{
 	
 	public function selecionarProdutosPorVenda($idVenda){
 		$criteria = new TCriteria();
-		$criteria->add(new TFilter('fkidvenda','=',$ididVenda));
+		$criteria->add(new TFilter('fkidvenda','=',$idVenda));
 		$c = $this->selecionarColecao($criteria);   
 		for($i=1; $i<= count($c['FKIDVENDA']); $i++){
 		  $produtosRecord = new ProdutosRecord();

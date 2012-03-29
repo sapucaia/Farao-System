@@ -17,6 +17,7 @@ class Fornecedor {
     private $cnpj;
     private $razaoSocaial;
     private $enderecoFornecedor;
+    private $fornecedorRepresentantesRecord;
     
     public function __construct($idFornecedor='', $nomeFantasia='', $cnpj='', $razaoSocaial='', $enderecoFornecedor='') {
         $this->idFornecedor = $idFornecedor;
@@ -24,6 +25,7 @@ class Fornecedor {
         $this->cnpj = $cnpj;
         $this->razaoSocaial = $razaoSocaial;
         $this->enderecoFornecedor = $enderecoFornecedor;
+        $this->fornecedorRepresentantesRecord = new FornecedorRepresentantesRecord();
     }
     
     public function getIdFornecedor() {
@@ -65,6 +67,14 @@ class Fornecedor {
     public function setEnderecoFornecedor($enderecoFornecedor) {
         $this->enderecoFornecedor = $enderecoFornecedor;
     }
+    
+    
+    public function addRepresentante($representante){
+        $dados['fkIdFornecedor'] = $this->getIdFornecedor();
+        $dados['fkIdRepresentante'] = $representante->getIdRepresentante();
+        
+        return $this->fornecedorRepresentantesRecord->cadastrar($dados);
+        }
 
 
     

@@ -10,7 +10,7 @@
  *
  * @author wallace
  */
-class TipoItens {
+class TipoItem {
 
     //put your code here
     private $idTipoItem;

@@ -10,7 +10,7 @@
  *
  * @author wallace
  */
-class ItemRecord extends ManipulaBanco{
+class ItemsRecord extends ManipulaBanco{
 //put your code here
 public function listar(){
     $criteria = new TCriteria;

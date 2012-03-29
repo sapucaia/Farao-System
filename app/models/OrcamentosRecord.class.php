@@ -14,7 +14,7 @@ class OrcamentosRecord extends ManipulaBanco{
 
   public function listar(){
     $criteria = new TCriteria;
-    $o = $this.selecionaColecao($criteria)
+    $o = $this.selecionaColecao($criteria);
 
     for($i = 1; $i <= count($o['IDORCAMENTO']); $i++){
       $this->orcamento[$i] = new Orcamento($o['FKIDCLIENTE'][$i],

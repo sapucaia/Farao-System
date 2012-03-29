@@ -10,7 +10,7 @@
  *
  * @author wallace
  */
-class TipoItemRecord extends ManipulaBanco {
+class TipoItemsRecord extends ManipulaBanco {
     
     private $tipoItem;
     public function listar(){

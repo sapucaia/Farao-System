@@ -1,13 +1,20 @@
 Classes a fazer:
   ClienteEndereco         - Wallace
   FornecedorEndereco      - Wallace
-  FornecedorRepresentante - Caique
-  ItemCaixa               - Fabio
-  RepresentanteEndereco   - Paavo
-  RepresentateTelefone    - Paavo
+  FornecedorRepresentante - Caique	OK
+  ItemCaixa               - Fabio	
+  RepresentanteEndereco   - Paavo	OK
+  RepresentateTelefone    - Paavo	OK
 
 Update de classes prontas:
   Fazer metodo listar - TODOS
   Fazer metodos de pesquisa em atributos mais importantes - TODOS
   metodo listar Array duplo - TODOS
+
+
+-- Modificações Caique
+
+> Consertei algumas classes Record que estavam com o nome sem o 's'
+> Inserção da class REPRESENTANTE que nao tinha
+
 

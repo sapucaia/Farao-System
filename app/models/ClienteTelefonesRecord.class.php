@@ -1,6 +1,6 @@
 <?php
 
-class ClientetelefonesRecord extends ManipulaBanco{
+class ClienteTelefonesRecord extends ManipulaBanco{
 
   public function cadastrar($dados){
     return $this->salvar($dados);
