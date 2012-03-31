@@ -11,7 +11,7 @@
  *
  * @author wallace
  */
-class ContasRecord extends ManipulaBanco {
+class ContaRecord extends ManipulaBanco {
 //    private $idConta;
 //    private $dataVencimento;
 //    private $dataPagamento;

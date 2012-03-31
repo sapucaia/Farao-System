@@ -4,7 +4,7 @@
  *@Caique Pires
  */
 
-class FornecedorRepresentantesRecord {
+class FornecedorRepresentanteRecord extends Manipulabanco{
     
     public function cadastrar($dados){
     return $this->salvar($dados);

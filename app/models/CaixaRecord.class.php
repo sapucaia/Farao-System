@@ -1,6 +1,6 @@
 <?php
 
-class CaixaRecord extends ManipulaBanco{
+class CaixasRecord extends ManipulaBanco{
 
 	private $caixas;
 

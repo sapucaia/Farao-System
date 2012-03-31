@@ -1,6 +1,6 @@
 <?php
 
-class ProdutoNotaVendaRecord extends ManipulaBanco{
+class ProdutonotavendasRecord extends ManipulaBanco{
 
 	private $produtosVenda;
 

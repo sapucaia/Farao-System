@@ -10,7 +10,7 @@
  *
  * @author wallace
  */
-class FornecedorsRecord extends ManipulaBanco{
+class FornecedorRecord extends ManipulaBanco{
     //put your code here
     
     public function listar(){

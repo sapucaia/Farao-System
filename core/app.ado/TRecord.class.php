@@ -39,8 +39,8 @@
       {
 		$classe = strtolower(get_class($this));
 
-                $tabela = substr($classe, 0, -7); //retornara o nome da entidade 
-		//$tabela = substr($classe, 0, -6);
+                //$tabela = substr($classe, 0, -7); //retornara o nome da entidade 
+		$tabela = substr($classe, 0, -6);
 		
 //		$esquema = substr($tabela,0,4);
 //		

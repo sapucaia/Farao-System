@@ -10,7 +10,7 @@
  *
  * @author wallace
  */
-class EnderecosRecord extends ManipulaBanco {
+class EnderecoRecord extends ManipulaBanco {
 
     private $enderecos;
 

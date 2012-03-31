@@ -1,6 +1,6 @@
 <?php
 
-class OrcamentosRecord extends ManipulaBanco{
+class OrcamentoRecord extends ManipulaBanco{
   
   private $orcamento;
   

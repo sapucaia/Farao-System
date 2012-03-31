@@ -1,5 +1,12 @@
 Leia-me
 
+Modificacao na classe TRecord!!
+
+As classes modelo que se comunicam com o banco possuem a forma
+
+(NOMEDATABELA)Record.class.php
+
+
 Configuração de pastas:
 
 Arquivos da aplicação

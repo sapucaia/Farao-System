@@ -1,6 +1,6 @@
 <?php
 
-class CidadeRecord extends ManipulaBanco{
+class CidadesRecord extends ManipulaBanco{
 
 	private $cidades;
 

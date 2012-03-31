@@ -1,6 +1,6 @@
 <?php
 
-class VendasRecord extends ManipulaBanco{
+class VendaRecord extends ManipulaBanco{
 
   public function cadastrar($venda){
     $dados['fkIdCliente'] = $venda->getFkIdCliente();

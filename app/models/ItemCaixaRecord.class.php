@@ -1,6 +1,6 @@
 <?php
 
-class ItemcaixasRecord extends ManipulaBanco {
+class ItemcaixaRecord extends ManipulaBanco {
 
   public function cadastrar($dados){
     return $this->salvar($dados);
