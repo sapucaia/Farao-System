@@ -17,6 +17,7 @@ app/
 	controllers/
 	Visao
 	views/
+    [CONTROLLER]/
 Arquivos de Configuração	
 conf/
 Arquivos Nucleo Acesso ao Banco de Dados
