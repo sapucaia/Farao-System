@@ -1,11 +1,16 @@
 <?php
 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  * Description of FonecedoresRecord
  *
  * @author wallace
  */
-class FornecedorRecord extends ManipulaBanco {
+class FonecedorRecord extends ManipulaBanco {
 
     //put your code here
 

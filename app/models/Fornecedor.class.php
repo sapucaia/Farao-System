@@ -11,23 +11,24 @@
  * @author wallace
  */
 class Fornecedor {
+
     //put your code here
     private $idFornecedor;
     private $nomeFantasia;
     private $cnpj;
-    private $razaoSocaial;
-    private $enderecoFornecedor;
-    private $fornecedorRepresentantesRecord;
-    
-    public function __construct($idFornecedor='', $nomeFantasia='', $cnpj='', $razaoSocaial='', $enderecoFornecedor='') {
+    private $razaoSocial;
+    private $fornecedorRepresentanteRecord;
+    private $fornecedorEnderecoRecord;
+
+    public function __construct($idFornecedor='', $nomeFantasia='', $cnpj='', $razaoSocial='') {
         $this->idFornecedor = $idFornecedor;
         $this->nomeFantasia = $nomeFantasia;
         $this->cnpj = $cnpj;
-        $this->razaoSocaial = $razaoSocaial;
-        $this->enderecoFornecedor = $enderecoFornecedor;
-        $this->fornecedorRepresentantesRecord = new FornecedorRepresentantesRecord();
+        $this->razaoSocial = $razaoSocial;
+        $this->fornecedorRepresentanteRecord = new FornecedorRepresentanteRecord();
+        $this->fornecedorEnderecoRecord = new FornecedorEnderecoRecord();
     }
-    
+
     public function getIdFornecedor() {
         return $this->idFornecedor;
     }
@@ -52,36 +53,27 @@ class Fornecedor {
         $this->cnpj = $cnpj;
     }
 
-    public function getRazaoSocaial() {
-        return $this->razaoSocaial;
+    public function getRazaoSocial() {
+        return $this->razaoSocial;
     }
 
-    public function setRazaoSocaial($razaoSocaial) {
-        $this->razaoSocaial = $razaoSocaial;
+    public function setRazaoSocial($razaoSocial) {
+        $this->razaoSocial = $razaoSocial;
     }
 
-    public function getEnderecoFornecedor() {
-        return $this->enderecoFornecedor;
-    }
-
-    public function setEnderecoFornecedor($enderecoFornecedor) {
-        $this->enderecoFornecedor = $enderecoFornecedor;
-    }
-    
-    
-    public function addRepresentante($representante){
-        $dados['fkIdFornecedor'] = $this->getIdFornecedor();
-        $dados['fkIdRepresentante'] = $representante->getIdRepresentante();
+    public function addFornecedorRepresentante($representante){
+        $dados['fkidfornecedor'] = $this->getIdFornecedor();
+        $dados['fkidrepresentante'] = $representante->getIdRepresentante();
+        return $this->fornecedorRepresentanteRecord->salvar($dados);
         
-        return $this->fornecedorRepresentantesRecord->cadastrar($dados);
-        }
+    }
+    
+    public function addFornecedorEndereco($endereco){
+        $dados['fkidfornecedor'] = $this->getIdFornecedor();
+        $dados['fkidendereco'] = $endereco->getIdEndereco();
+        return $this->fornecedorEnderecoRecord->cadastrar($dados);
+    }
 
-
-    
-    
-
-    
-    
 }
 
 ?>

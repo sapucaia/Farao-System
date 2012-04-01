@@ -11,7 +11,7 @@ class Compra{
 	  $this->idCompra = $idCompra;
     $this->fkIdFornecedor = $fkIdFornecedor;
     $this->dataCompra = $dataCompra;
-	  $this->produtoNotaCompraRecord = new ProdutonotacomprasRecord();
+	  $this->produtoNotaCompraRecord = new ProdutoNotaCompraRecord();
   }
 
   public function setIdCompra($idCompra){

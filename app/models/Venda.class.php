@@ -12,7 +12,7 @@ class Venda{
     $this->idVenda = $idVenda;
     $this->fkIdCliente = $fkIdCliente;
     $this->dataVenda = $dataVenda;
-    $this->produtoNotaVendaRecord = new ProdutonotavendasRecord();
+    $this->produtoNotaVendaRecord = new ProdutoNotaVendaRecord();
     $this->clienteRecord = new ClientesRecord();
   }
 

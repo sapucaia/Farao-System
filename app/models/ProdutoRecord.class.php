@@ -62,8 +62,8 @@ class ProdutoRecord extends ManipulaBanco{
   }
 
   public function cadastrar($produto){
-    $dados['fkIdForncedor'] = $produto->getFkIdFornecedor();
-    $dados['nomeProduto'] = $produto->getNomeProduto();
+    $dados['fkidfornecedor'] = $produto->getFkIdFornecedor();
+    $dados['nomeproduto'] = $produto->getNomeProduto();
     $dados['valor'] = $produto->getValor();
     $dados['descricao'] = $produto->getDescricao();
     return $this->salvar($dados);

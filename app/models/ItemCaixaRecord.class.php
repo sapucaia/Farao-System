@@ -2,7 +2,8 @@
 
 class ItemcaixaRecord extends ManipulaBanco {
 
-  public function cadastrar($dados){
+    private $itemCaixa;
+    public function cadastrar($dados){
     return $this->salvar($dados);
   }
 
@@ -10,11 +11,11 @@ class ItemcaixaRecord extends ManipulaBanco {
     $criteria = new TCriteria;
     $ic = $this->selecionarColecao($criteria);
 
-      for($i = 1 ; $i <= count(ic['FKIDCAIXA']); i++){
-        $this.itemCaixa[$i] = new ItemCaixa($ic['FKITEMCAIXA'][$i], 
-                              $ic['QTDITEMCAIXA'][$i]);
+      for($i = 1 ; $i <= count($ic['FKIDCAIXA']); $i++){
+        $this->itemCaixa[$i] = new ItemCaixa($ic['FKITEMCAIXA'][$i], 
+                                             $ic['QTDITEMCAIXA'][$i]);
       }
-  return $this.itemCaixa;
+  return $this->itemCaixa;
   }
 
 

@@ -15,12 +15,12 @@ class Item {
     //put your code here
     private $idItem;
     private $fkIdItem;
-    private $nome;
+    private $nomeItem;
 
-    public function __construct($idItem='', $fkIdItem='', $nome='') {
+    public function __construct($idItem='', $fkIdItem='', $nomeItem='') {
         $this->idItem = $idItem;
         $this->fkIdItem = $fkIdItem;
-        $this->nome = $nome;
+        $this->nomeItem = $nomeItem;
     }
 
     public function getIdItem() {
@@ -39,12 +39,12 @@ class Item {
         $this->fkIdItem = $fkIdItem;
     }
 
-    public function getNome() {
+    public function getNomeItem() {
         return $this->nome;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
+    public function setNomeItem($nomeItem) {
+        $this->nome = $nomeItem;
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-//error_reporting(0);
+//error_reporting(1);
 
 @ session_start();
 
@@ -61,6 +61,24 @@ function __autoload($classe) {
     elseif (file_exists('../../../app/models/' . $classe . '.class.php')) {
         include_once '../../../app/models/' . $classe . '.class.php';
     }
+
+    elseif (file_exists('../controllers/' . $classe . '.class.php')) {
+        include_once '../controllers/' . $classe . '.class.php';
+    } elseif (file_exists('app/controllers/' . $classe . '.class.php')) {
+        include_once 'app/controllers/' . $classe . '.class.php';
+    } elseif (file_exists('../app/controllers/' . $classe . '.class.php')) {
+        include_once '../app/controllers/' . $classe . '.class.php';
+    }
+    
+    elseif (file_exists('../../app/controllers/' . $classe . '.class.php')) {
+        include_once '../../app/controllers/' . $classe . '.class.php';
+    }
+
+    elseif (file_exists('../../../app/controllers/' . $classe . '.class.php')) {
+        include_once '../../../app/controllers/' . $classe . '.class.php';
+    }
+
+
 }
 
 ?>
