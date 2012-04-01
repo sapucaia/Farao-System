@@ -1,5 +1,6 @@
 <?php
 
+
 class Cliente{
 
   private $idCliente;
@@ -11,7 +12,7 @@ class Cliente{
     $this->idCliente = $idCliente;
     $this->nomeCliente = $nomeCliente;
     $this->emailCliente  = $emailCliente;
-    $this->clienteTelefoneRecord = new ClienteTelefonesRecord();
+    $this->clienteTelefoneRecord = new ClienteTelefoneRecord();
   }
 
   public function setIdCliente($idCliente){

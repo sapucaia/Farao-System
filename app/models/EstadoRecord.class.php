@@ -1,6 +1,6 @@
 <?php
 
-class EstadosRecord extends ManipulaBanco{
+class EstadoRecord extends ManipulaBanco{
 
 	private $estados;
 

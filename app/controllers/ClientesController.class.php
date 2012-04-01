@@ -1,16 +1,19 @@
 <?php
 require '../../conf/lock.php';
-$acao = $_GET['acao'];
 
-$post = strip_tags($_POST);
+
+if($_POST != null) $post = strip_tags($_POST);
 
 $clientesController = new ClientesController;
+if($_GET['acao'] != null){
+
+$acao = $_GET['acao'];
 switch($acao){
   case 'cadastrar':
   $clientesController->cadastrar($post);  
 
 }
-
+}
 
 class ClientesController{
 
@@ -20,7 +23,7 @@ private $clientesRecord;
 
 public function __construct(){
 $this->cliente = new Cliente();
-$this->clientesRecord = new ClientesRecord;
+$this->clientesRecord = new ClienteRecord;
 }
 
 public function cadastrar($post){

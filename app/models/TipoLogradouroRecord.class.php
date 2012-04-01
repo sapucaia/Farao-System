@@ -1,6 +1,6 @@
 <?php
 
-class TipologradourosRecord extends ManipulaBanco{
+class TipologradouroRecord extends ManipulaBanco{
 
   private $tiposLogradouro;
 

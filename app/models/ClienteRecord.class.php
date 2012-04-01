@@ -1,6 +1,6 @@
 <?php 
 
-class ClientesRecord extends ManipulaBanco{
+class ClienteRecord extends ManipulaBanco{
 
   private $clientes;
 
