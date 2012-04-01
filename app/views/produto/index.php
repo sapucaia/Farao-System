@@ -4,9 +4,9 @@
   require_once '../../controllers/ProdutosController.class.php';
   
   $controller = new ProdutosController;
-  $produtos = $controller->index();
+  $produtos = $_REQUEST['produtos'];
   
-  for($i=0;$i<count($produtos);$i++){
+  for($i=1;$i<=count($produtos);$i++){
     echo $produtos[$i]->getNomeProduto() . "<br/>";
   
   }

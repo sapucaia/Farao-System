@@ -1,5 +1,6 @@
 <?php
-require '../../conf/lock.php';
+  
+  require '../../../conf/lock.php';
   
   $acao = $_GET['acao'];
   
@@ -31,7 +32,7 @@ class ProdutosController{
 	}
 	
 	public function index(){
-	  return $this->produtoRecord->listar();
+	  $_REQUEST['produtos'] =  $this->produtoRecord->listar();
 	}
 
 }
