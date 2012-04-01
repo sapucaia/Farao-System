@@ -11,6 +11,9 @@
     case "index":{
       $controller->index();
     }
+    case "novo":{
+      $controller->novo();
+    }
   
   
   }
@@ -18,6 +21,7 @@
 class ProdutosController{
 
   private $produtoRecord;
+  private $produto;
   
   public function __construct(){
     $this->produtoRecord = new ProdutoRecord();
@@ -25,6 +29,10 @@ class ProdutosController{
 
 	public function salvar(){
 	
+	}
+	
+	public function novo(){
+	  $this->produto = new Produto;
 	}
 	
 	public function listar(){
