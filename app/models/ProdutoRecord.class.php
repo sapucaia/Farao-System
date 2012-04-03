@@ -68,6 +68,14 @@ class ProdutoRecord extends ManipulaBanco{
     $dados['descricao'] = $produto->getDescricao();
     return $this->salvar($dados);
   }
+  
+  public function editar($produto){
+    $dados['fkidfornecedor'] = $produto->getFkIdFornecedor();
+    $dados['nomeproduto'] = $produto->getNomeProduto();
+    $dados['valor'] = $produto->getValor();
+    $dados['descricao'] = $produto->getDescricao();
+    return $this->atualizar($dados, $produto->getIdProduto());
+  }
 
 }
 

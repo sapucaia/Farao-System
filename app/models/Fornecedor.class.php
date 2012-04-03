@@ -60,6 +60,14 @@ class Fornecedor {
     public function setRazaoSocial($razaoSocial) {
         $this->razaoSocial = $razaoSocial;
     }
+    
+    public function equals($outroFornecedor){
+      if($this->idFornecedor==$outroFornecedor->getIdFornecedor()){
+        return true;
+      }else{
+        return false;
+      }
+    }
 
     public function addFornecedorRepresentante($representante){
         $dados['fkidfornecedor'] = $this->getIdFornecedor();

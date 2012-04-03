@@ -25,9 +25,10 @@ class FornecedorRecord extends ManipulaBanco {
     
     public function selecionarPorId($idFornecedor){
         $criteria = new TCriteria;
-        $criteria->add(new TFilter('idFornecedor', '=', $idFornecedor));
+        $criteria->add(new TFilter('idfornecedor', '=', $idFornecedor));
         $aux = $this->selecionarColecao($criteria);
-        $fornecedor = new Fornecedor($aux['NOMEFANTASIA'][1],
+        $fornecedor = new Fornecedor($aux['IDFORNECEDOR'][1],
+                                     $aux['NOMEFANTASIA'][1],
                                      $aux['CNPJ'][1],
                                      $aux['RAZAOSOCIAL'][1]);
         return $fornecedor;
@@ -37,6 +38,7 @@ class FornecedorRecord extends ManipulaBanco {
         $criteria->add(new TFilter('nomeFantasia', 'LIKE', $nomeFantasia));
         $aux = $this->selecionarColecao($criteria);
         $fornecedor = new Fornecedor($aux['IDFORNECEDOR'][1],
+                                     $aux['NOMEFANTASIA'][1],
                                      $aux['CNPJ'][1],
                                      $aux['RAZAOSOCIAL'][1]);
         return $fornecedor;
@@ -47,6 +49,7 @@ class FornecedorRecord extends ManipulaBanco {
         $aux = $this->selecionarColecao($criteria);
         $fornecedor = new Fornecedor($aux['IDFORNECEDOR'][1],
                                      $aux['NOMEFANTASIA'][1],
+                                     $aux['CNPJ'][1],
                                      $aux['RAZAOSOCIAL'][1]);
         return $fornecedor;
     }
@@ -57,7 +60,8 @@ class FornecedorRecord extends ManipulaBanco {
         $aux = $this->selecionarColecao($criteria);
         $fornecedor = new Fornecedor($aux['IDFORNECEDOR'][1],
                                      $aux['NOMEFANTASIA'][1],
-                                     $aux['CNPJ'][1]);
+                                     $aux['CNPJ'][1],
+                                     $aux['RAZAOSOCIAL'][1]);
         return $fornecedor;
     }
 

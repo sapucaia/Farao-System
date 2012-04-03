@@ -1,18 +1,23 @@
 <?php
   
   $acao = $_GET['acao'];
-  if($acao == "index" || $acao == "novo") {
-    require '../../../conf/lock.php';
-  }elseif($acao == "salvar"){
-    require '../../conf/lock.php';
-    
+  
+  switch($acao){
+    case "index":
+    case "novo":
+    case "editar":
+    case "mostrar":
+      require '../../../conf/lock.php';
+      break;
+    case "salvar":
+    case "atualizar":
+      require '../../conf/lock.php';
+      break;
   }
-  //else require '../../conf/lock.php';
 
-
+  echo $_SERVER['REQUEST_URI'];
   $controller = new ProdutosController;
   $post = $_POST;
-  
   
   switch($acao){
     
@@ -24,11 +29,22 @@
       $controller->salvar($post);
       break;
     }    
+    case "editar":{
+      $controller->editar($_GET['id']);
+      break;
+    }
+    case "mostrar":{
+      $controller->mostrar($_GET['id']);
+      break;
+    }
+    case "atualizar":{
+      $controller->atualizar($post);
+      break;
+    }
     default:{
       $controller->index();
       break;
     }
-  
   
   }
 
@@ -47,11 +63,10 @@ class ProdutosController{
   }
 
 	public function salvar($post){
-    
-    $this->produto->setNomeProduto($post['nomeProduto']);
-    $this->produto->setFkIdFornecedor($post['fornecedor']);
-    $this->produto->setValor($post['valor']);
-    $this->produto->setDescricao($post['descricao']);
+    $this->produto->setNomeProduto(strip_tags($post['nomeProduto']));
+    $this->produto->setFkIdFornecedor(strip_tags($post['fornecedor']));
+    $this->produto->setValor(strip_tags($post['valor']));
+    $this->produto->setDescricao(strip_tags($post['descricao']));
 	  if($this->produtoRecord->cadastrar($this->produto)){
       echo "Salvo com sucesso.";
     }else{
@@ -65,12 +80,26 @@ class ProdutosController{
     $_REQUEST['fornecedores'] = $this->fornecedorRecord->listar();
 	}
 	
-	public function listar(){
-	  
+	public function mostrar($idProduto){
+	  $_REQUEST['produto'] = $this->produtoRecord->getProduto($idProduto);
 	}
 
-  public function atualizar(){
-
+  public function editar($idProduto){
+    $_REQUEST['fornecedores'] = $this->fornecedorRecord->listar();
+    $_REQUEST['produto'] = $this->produtoRecord->getProduto($idProduto);
+  }
+  
+  public function atualizar($post){
+    $this->produto->setIdProduto(strip_tags($post['idProduto']));
+    $this->produto->setNomeProduto(strip_tags($post['nomeProduto']));
+    $this->produto->setFkIdFornecedor(strip_tags($post['fornecedor']));
+    $this->produto->setValor(strip_tags($post['valor']));
+    $this->produto->setDescricao(strip_tags($post['descricao']));
+	  if($this->produtoRecord->editar($this->produto)){
+      echo "Atualizado com sucesso.";
+    }else{
+      echo "Erro ao atualizar."; 
+    }
   }
 
   public function remover(){

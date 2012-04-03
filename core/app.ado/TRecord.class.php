@@ -120,7 +120,7 @@
       public function update($cod)
       {
          $criteria = new TCriteria;
-         $criteria->add(new TFilter('cd_'.$this->getEntity(),'=',$cod));
+         $criteria->add(new TFilter('id'.$this->getEntity(),'=',$cod));
          
          $sql = new TSqlUpdate;
          $sql->setEntity($this->getEntity());
@@ -128,7 +128,7 @@
 
          foreach($this->data as $key => $value)
          {
-            if($key != 'cd_'.$this->getEntity())
+            if($key != 'id'.$this->getEntity())
             {
                $sql->setRowData($key,$this->$key);
             }

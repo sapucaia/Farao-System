@@ -7,6 +7,7 @@ class Produto{
   private $nomeProduto;
   private $valor;
   private $descricao;
+  private $fornecedorRecord;
   
   public function __construct($idProduto = '', $fkIdFornecedor = '', $nomeproduto = '',
 							  $valor = '', $descricao = ''){
@@ -15,6 +16,7 @@ class Produto{
 	  $this->nomeProduto = $nomeproduto;
 	  $this->valor = $valor;
 	  $this->descricao = $descricao;
+	  $this->fornecedorRecord = new FornecedorRecord;
   }
   
   public function getIdProduto(){
@@ -55,6 +57,10 @@ class Produto{
   
   public function setDescricao($descricao){
 	  $this->descricao = $descricao;
+  }
+  
+  public function getFornecedor(){
+    return $this->fornecedorRecord->selecionarPorId($this->fkIdFornecedor);
   }
   
 }

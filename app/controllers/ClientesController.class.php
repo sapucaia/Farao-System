@@ -1,54 +1,76 @@
 <?php
-require '../../conf/lock.php';
 
-
-if($_POST != null) $post = strip_tags($_POST);
-
-$clientesController = new ClientesController;
-if($_GET['acao'] != null){
-
-$acao = $_GET['acao'];
-switch($acao){
-  case 'cadastrar':
-  $clientesController->cadastrar($post);  
-
-}
-}
+  if($_POST != null) $post = $_POST;
+  
+  $acao = $_GET['acao'];
+  
+  switch($acao){
+    case "index":
+    case "novo":
+    case "editar":
+    case "mostrar":
+      require '../../../conf/lock.php';
+      break;
+    case "salvar":
+    case "atualizar":
+      require '../../conf/lock.php';
+      break;
+  }
+  
+  $clientesController = new ClientesController;
+  
+  switch($acao){
+    case 'salvar':{
+      $clientesController->salvar($post);
+      break;  
+    }
+    default:{
+      $clientesController->index();
+      break;
+    }
+  }
 
 class ClientesController{
 
-private $cliente;
-private $clientesRecord;
+  private static $cliente;
+  private $clientesRecord;
 
 
-public function __construct(){
-$this->cliente = new Cliente();
-$this->clientesRecord = new ClienteRecord;
-}
+  public function __construct(){
+    if(!isset($this->cliente)){
+      $this->cliente = new Cliente;    
+    }
+    $this->clientesRecord = new ClienteRecord;
+  }
 
-public function cadastrar($post){
+  public function salvar($post){
+    $this->cliente->setNomeCliente($post['nomeCliente']);
+    $this->cliente->setEmailCliente($post['emailCliente']);
+    if($this->clientesRecord->cadastrar($this->cliente))
+      echo 'Sucesso total';
+    else
+      echo 'Falha ao cadastrar';
+  }
+  
+  public function atualizar(){
+  
+  }
+  
+  public function novo(){
+  
+  }
+  
+  public function editar($idCliente){
+  
+  }
+  
+  public function mostrar($idCliente){
+  
+  }
 
-$this->cliente->setNomeCliente($post['nomeCliente']);
-$this->cliente->setEmailCliente($post['emailCliente']);
-if($this->clientesRecord->cadastrar($this->cliente))
-echo 'Sucesso total';
-else
-echo 'Falha ao cadastrar';
-}
-
-public function listar(){
-
-
-return $this->clientesRecord->listar();
-
-
-}
-
-
-
-
-
-
+  public function index(){
+    $_REQUEST['clientes'] = $this->clientesRecord->listar();
+  }
 
 }
 

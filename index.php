@@ -57,8 +57,8 @@ echo $clienteR->cadastrar($cliente);
 <body>
 
 
-<a href='app/views/clienteAdd.php'>Cliente</a> <br/>
-<a href='app/views/clientesList.php'>Listar Clientes</a>
+<p><a href='app/views/cliente'>Clientes</a></p>
+<p><a href='app/views/produto'>Produtos</a></p>
 </body>
 
 
