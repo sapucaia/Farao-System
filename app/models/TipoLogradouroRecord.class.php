@@ -1,6 +1,6 @@
 <?php
 
-class TipologradouroRecord extends ManipulaBanco{
+class TipoLogradouroRecord extends ManipulaBanco{
 
   private $tiposLogradouro;
 
@@ -9,7 +9,7 @@ class TipologradouroRecord extends ManipulaBanco{
     $tl = $this->selecionarColecao($criteria);
 
 	  for($i=1; $i<=count($tl['IDTIPOLOGRADOURO']); $i++){
-	    $this->tiposLogradouro[$i] = new TipoLogradouro($tl['IDTIPOLOGRADOURO'][$i], 
+	    $this->tiposLogradouro[$i] = new TipoLogradouro($tl['IDTIPOLOGRADOURO'][$i],
 								$tl['DESCRICAO'][$i]);
 	  }
 
@@ -25,3 +25,4 @@ class TipologradouroRecord extends ManipulaBanco{
 }
 
 ?>
+

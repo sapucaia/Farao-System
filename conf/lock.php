@@ -3,7 +3,7 @@
 
 //error_reporting(1);
 
-@ session_start();
+
 
 /* seto a codificação como utf-8 */
 header('Content-Type: text/html; charset=utf-8');
@@ -43,7 +43,7 @@ function __autoload($classe) {
         include_once '../app.ado/' . $classe . '.class.php';
     } elseif (file_exists('../../app.ado/' . $classe . '.class.php')) {
         include_once '../../app.ado/' . $classe . '.class.php';
-    } 
+    }
     elseif (file_exists('core/app.ado/' . $classe . '.class.php')) {
         include_once 'core/app.ado/' . $classe . '.class.php';
     }
@@ -57,7 +57,7 @@ function __autoload($classe) {
     } elseif (file_exists('../app/models/' . $classe . '.class.php')) {
         include_once '../app/models/' . $classe . '.class.php';
     }
-    
+
     elseif (file_exists('../../../app/models/' . $classe . '.class.php')) {
         include_once '../../../app/models/' . $classe . '.class.php';
     }
@@ -69,7 +69,7 @@ function __autoload($classe) {
     } elseif (file_exists('../app/controllers/' . $classe . '.class.php')) {
         include_once '../app/controllers/' . $classe . '.class.php';
     }
-    
+
     elseif (file_exists('../../app/controllers/' . $classe . '.class.php')) {
         include_once '../../app/controllers/' . $classe . '.class.php';
     }
@@ -80,5 +80,7 @@ function __autoload($classe) {
 
 
 }
+ session_start();
 
 ?>
+

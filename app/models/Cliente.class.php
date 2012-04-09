@@ -51,6 +51,11 @@ class Cliente {
         return $this->clienteEnderecoRecordRecord->cadastrar($dados);
     }
 
+    public function getTelefones(){
+      return $this->clienteTelefoneRecord->selecionarTelefonesPorCliente($this->idCliente);
+    }
+
 }
 
 ?>
+

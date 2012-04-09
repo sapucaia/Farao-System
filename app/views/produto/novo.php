@@ -3,7 +3,7 @@
 
   $_GET['acao'] = "novo";
   //require '../../../conf/lock.php';
-  require_once '../../controllers/ProdutosController.class.php';  
+  require_once '../../controllers/ProdutosController.class.php';
 $controller = new ProdutosController;
   echo '<h1>Novo Produto</h1>';
 ?>
@@ -11,7 +11,7 @@ $controller = new ProdutosController;
 <html>
   <head>
   </head>
-  
+
   <body>
     <form action="../../controllers/ProdutosController.class.php?acao=salvar" method="post">
       <fieldset>
@@ -25,7 +25,7 @@ $controller = new ProdutosController;
     <select id="fornecedor" name="fornecedor">
       <option value="0">--</option>
       <?php
-        
+
         $fornecedores = $_REQUEST['fornecedores'];
           for($i=1; $i<=count($fornecedores); $i++){
           echo "<option value=".$fornecedores[$i]->getIdFornecedor().">".$fornecedores[$i]->getRazaoSocial()."</option>";
@@ -41,15 +41,16 @@ $controller = new ProdutosController;
         <p>
         <label for="descricao">Descricao
           <textarea name="descricao" rows="2" cols="20">
-          </textarea> 
+          </textarea>
         </label>
 </p>
         <p>
         <input type='submit' value='Salvar'/>
 </p>
       </fieldset>
-    </form>    
-  
+    </form>
+
   </body>
 
 </html>
+
