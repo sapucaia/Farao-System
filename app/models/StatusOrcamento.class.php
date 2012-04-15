@@ -7,7 +7,7 @@ class StatusOrcamento{
 
   public function __construct($idStatusOrcamento = '', $statusOrcamento = ''){
     $this->idStatusOrcamento = $idStatusOrcamento;
-    $this->StatusOrcamento = $StatusOrcamento;
+    $this->statusOrcamento = $statusOrcamento;
   }
 
   public function setIdStatusOrcamento($idStatusOrcamento){

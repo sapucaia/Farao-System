@@ -6,20 +6,24 @@ class Orcamento{
   private $fkIdCliente;
   private $fkIdStatusOrcamento; 
   private $url;
+  private $statusOrcamentoRecord;
+  private $clienteRecord;
   
   public function __construct($idOrcamento = '', $fkIdCliente = '', $fkIdStatusOrcamento = '', $url = ''){
     $this->idOrcamento = $idOrcamento;
     $this->fkIdCliente = $fkIdCliente;
     $this->fkIdStatusOrcamento = $fkIdStatusOrcamento;
     $this->url = $url;
+    $this->statusOrcamentoRecord = new StatusOrcamentoRecord;
+    $this->clienteRecord = new ClienteRecord;
   }
 
   public function setIdOrcamento($idOrcamento){
     $this->idOrcamento = $idOrcamento;
   }
 
-  public function getOrcamento(){
-    return $this->$orcamento;
+  public function getIdOrcamento(){
+    return $this->idOrcamento;
   }
   
   public function setFkIdCliente($fkIdCliente){
@@ -44,10 +48,27 @@ class Orcamento{
 
   public function getUrl(){
     return $this->url;
+  }
 
+  public function getCliente(){
+    return $this->clienteRecord->selecionarPorId($this->fkIdCliente);
+  }
 
+  public function getStatus(){
+    return $this->statusOrcamentoRecord->selecionarPorId($this->fkIdStatusOrcamento);
+    
+  }
 
 }
 
-}
+
+
+
+
+
+
+
+
+
+
 ?>

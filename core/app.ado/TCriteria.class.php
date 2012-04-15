@@ -102,7 +102,7 @@
 
         {
 
-
+if(isset($this->expressions)){
            if(is_array($this->expressions))
 
 
@@ -132,7 +132,7 @@
 
               return "({$result})";
 
-
+}
            }
 
 

@@ -2,7 +2,7 @@
 
 class OrcamentoRecord extends ManipulaBanco{
   
-  private $orcamento;
+  private $orcamentos;
   
   public function cadastrar($orcamento){
     $dados['IDORCAMENTO'] =  $orcamento->getIdOrcamento();
@@ -14,16 +14,52 @@ class OrcamentoRecord extends ManipulaBanco{
 
   public function listar(){
     $criteria = new TCriteria;
-    $o = $this.selecionaColecao($criteria);
+    $o = $this->selecionarColecao($criteria);
 
     for($i = 1; $i <= count($o['IDORCAMENTO']); $i++){
-      $this->orcamento[$i] = new Orcamento($o['FKIDCLIENTE'][$i],
+      $this->orcamentos[$i] = new Orcamento($o['IDORCAMENTO'][$i],
                                            $o['FKIDCLIENTE'][$i],
-                                           $o['FKIDSTATUSORCAMENTO'][$i]);
+                                           $o['FKIDSTATUSORCAMENTO'][$i],
+                                           $o['URL'][$i]);
     }
-  return $this->orcamento;
+  return $this->orcamentos;
 
   }
+
+  public function getOrcamento($idOrcamento){
+    $criteria = new TCriteria();
+    $criteria = add(new TFilter('idOrcamento','=', $idOrcamento));
+    $o = $this->selecionarColecao($criteria);
+    $orcamento = new Orcamento($o['IDORCAMENTO'][1],
+                     $o['FKIDCLIENTE'][1],
+                     $o['FKIDSTATUSORCAMENTO'][1],
+                     $o['URL'][1]);
+    return $orcamento;  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

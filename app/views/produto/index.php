@@ -1,24 +1,20 @@
 <?php
-  
   $_GET['acao'] = "index";
   require_once '../../controllers/ProdutosController.class.php';
   //require '../../../conf/lock.php';
   $controller = new ProdutosController();
   $produtos = $_REQUEST['produtos'];
-
 ?>
 
 <html>
-
-	<head>
-		
+	<head>	
 	</head>
 	<body>
 		<table>
 		  <tbody>
 		    <?php
-		      foreach($produtos as $produto){
-		        $fornecedor = $produto->getFornecedor();
+		      foreach($produtos as $produto){		        
+          $fornecedor = $produto->getFornecedor();
 		        $linha = "<tr>";
 		        $linha .= "<td>" . $produto->getIdProduto() . "</td>";
 		        $linha .= "<td>" . $produto->getNomeProduto() . "</td>";
@@ -37,3 +33,30 @@
 	</body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
