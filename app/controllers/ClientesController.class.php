@@ -22,6 +22,10 @@
   $clientesController = new ClientesController;
 
   switch($acao){
+    case 'novo':{
+      $clienteController->novo();
+      break;
+    }
     case 'salvar':{
       $clientesController->salvar($post);
       break;
@@ -86,7 +90,7 @@ class ClientesController{
 
   public function atualizar(){}
 
-  public function novo(){}
+  public function novo(){  }
 
   public function editar($idCliente){}
 

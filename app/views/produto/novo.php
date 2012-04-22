@@ -20,6 +20,7 @@ $controller = new ProdutosController;
             <input type='text' name='nomeProduto' />
           </label>
         </p>
+
 <p>
     <label>Fornecedor</label>
     <select id="fornecedor" name="fornecedor">
@@ -45,12 +46,12 @@ $controller = new ProdutosController;
         </label>
 </p>
         <p>
-        <input type='submit' value='Salvar'/>
+        <input type='submit' value='Salvar' />
 </p>
       </fieldset>
+    
     </form>
 
   </body>
-
 </html>
 

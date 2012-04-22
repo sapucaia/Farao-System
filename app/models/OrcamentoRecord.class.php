@@ -5,11 +5,10 @@ class OrcamentoRecord extends ManipulaBanco{
   private $orcamentos;
   
   public function cadastrar($orcamento){
-    $dados['IDORCAMENTO'] =  $orcamento->getIdOrcamento();
-    $dados['FKIDCLIENTE'] =  $orcamento->getFkIdCliente();
-    $dados['FKIDSTATUSORCAMENTO'] =  $orcamento->getFkIdStatusOrcamento();
+    $dados['FKIDCLIENTE'] = $orcamento->getFkIdCliente();
+    $dados['FKIDSTATUSORCAMENTO'] = $orcamento->getFkIdStatusOrcamento();
     $dados['URL'] = $orcamento->getUrl();
-    return $this->salvar($dados);
+return $this->salvar($dados);
   }
 
   public function listar(){
@@ -34,8 +33,9 @@ class OrcamentoRecord extends ManipulaBanco{
                      $o['FKIDCLIENTE'][1],
                      $o['FKIDSTATUSORCAMENTO'][1],
                      $o['URL'][1]);
-    return $orcamento;  
+    return $this->orcamentos;  
   }
+
 
 
 

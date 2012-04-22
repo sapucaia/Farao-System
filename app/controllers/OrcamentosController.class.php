@@ -3,14 +3,15 @@
   $acao = $_GET['acao'];
 
   switch($acao){
-    case 'index': 
-    case 'editar':
-    case 'mostrar':
-      require '../../../conf/lock.php';
+    case "index": 
+    case "novo":
+    case "editar":
+    case "mostrar":
+      require "../../../conf/lock.php";
       break;
-    case 'salvar':    
-    case 'atualizar':
-      require '../../conf/lock.php';
+    case "salvar":    
+    case "atualizar":
+      require "../../conf/lock.php";
       break;
   }
 
@@ -19,23 +20,23 @@
   $post = $_POST;
 
   switch($acao){
-    case 'novo':{
+    case "novo":{
       $controller->novo();
       break;
     }
-    case 'salvar':{
+    case "salvar":{
       $controller->salvar($post);
        break;
     }
-    case 'editar':{
+    case "editar":{
       $controller->editar($_GET['id']);
       break;
     }
-    case 'mostrar':{
+    case "mostrar":{
       $controller->mostrar($_GET['id']);
       break;
     }
-    case 'atualizar':{
+    case "atualizar":{
       $controller->atualizar($post);
       break;
     }
@@ -45,21 +46,24 @@
     }
   }
 
-class OrcamentosController{
+class OrcamentosController {
 
   private $orcamentoRecord;
-  private $produtoRecord;
-  private static $orcamento;
+  private $clienteRecord;
+  private $statusOrcamentoRecord;
+  private $orcamento;
 
   public function __construct(){
     $this->orcamentoRecord = new OrcamentoRecord();
-    $this->produtoRecord = new ProdutoRecord();
-    $this->orcamento = new Orcamento();
+    $this->clienteRecord = new ClienteRecord();
+    $this->statusOrcamentoRecord = new StatusOrcamentoRecord();
+    $this->orcamento = new Orcamento;
+
   }
     
   public function salvar($post){
     $this->orcamento->setFkIdCliente(strip_tags($post['fkIdCliente']));
-    $this->orcamento->setFkIdStatusOrcamento(strip_tags($post['fkIdStatusOrcamento']));
+    $this->orcamento->setFkIdStatusOrcamento(strip_tags($post['statusOrcamento']));
     $this->orcamento->setUrl(strip_tags($post['url']));
     if($this->orcamentoRecord->cadastrar($this->orcamento)){
       echo "Salvo com sucesso.";
@@ -69,7 +73,8 @@ class OrcamentosController{
   }
 
   public function novo(){
-    $_REQUEST['orcamento'] = $this->orcamentoRecord->listar();
+    $_REQUEST['clientes'] = $this->clienteRecord->listar();
+    $_REQUEST['statusOrcamento'] = $this->statusOrcamentoRecord->listar();
   }
 
   public function mostrar($idOrcamento){

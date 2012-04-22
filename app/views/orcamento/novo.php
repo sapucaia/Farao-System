@@ -1,7 +1,7 @@
 <?php
   $_GET['acao'] = "novo";
-  require_onde '../../controllers/OrcamentoController.class.php';
-  $controller = new OrcamentoController;
+  require_once '../../controllers/OrcamentosController.class.php';
+  $controller = new OrcamentosController;
   
   echo '<h1>Novo Orcamento</h1>';
 ?>
@@ -10,38 +10,49 @@
   <head>
   </head>
   <body>
-    <form action="../../controllers/OrcamentoController.class.php?acao=salvar" method="post">
+
+    <form action="../../controllers/OrcamentosController.class.php?acao=salvar" method="post">
+
       <fieldset>
-        <p>
-          <label for="produto">Produto</label>
-          <select id="produto" name="produto">
-            <option value="0">--</option>
-
-            <?php
-
-              $produtos = $_REQUEST['produto'];
-                for($i=1;$i<=count($produtos);i++){
-                echo "<option value=".$produtos[$i]->getIdProduto().">".$produtos[$i]->getNomeProduto()."</option>";
-                }
-
-            ?>
-
-          </select>
-        </p>
-        <p>
-          <label for="cliente">Cliente
-            <input type='text' name='cliente' />
-          </label>
-        </p>
+ 
         
+    <p>          
+      <label>Cliente</label>
+          <select id="cliente" nome="cliente">
+            <option value="0">--</option>
+<?php
+
+  $clientes = $_REQUEST['clientes'];
+  for($i=1; $i<=count($clientes); $i++){
+    echo "<option value=".$clientes[$i]->getIdCliente().">".$clientes[$i]->getNomeCliente()."</option>";
+  }
+?>
+          </select>
+    </p>
+        
+  <p>
+    <label>Status Orcamento</label>
+    <select id="status" name="status">
+      <option value="0">--</option>          
+<?php
+  $status = $_REQUEST['statusOrcamento'];
+  for($i=1; $i<=count($status); $i++){
+      echo "<option value".$status[$i]->getIdStatusOrcamento().">".$status[$i]->getStatusOrcamento()."</option>";
+  }
+?>
+</select>
+</p>
         <p>
-          <label for="status">Status Orcamento
-            <input type='text' name='status' />    
+          <label for="url">URL
+            <input type='text' name='url' />    
           </label>  
         </p>
 
+        <p>
+          <input type='submit' valor='Salvar' />        
+        </p>
 
-          </label>
+
       </fieldset>
     </form>
   </body>
