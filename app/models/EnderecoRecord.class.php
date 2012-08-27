@@ -31,14 +31,28 @@ class EnderecoRecord extends ManipulaBanco {
     }
 
     public function cadastrar($endereco) {
-        $dados['idEndereco'] = $endereco['idEndereco'];
-        $dados['logradouro'] = $endereco['logradouro'];
-        $dados['fkIdTipoLogradouro'] = $endereco['fkIdTipoLogradouro'];
-        $dados['bairro'] = $endereco['bairro'];
-        $dados['cep'] = $endereco['cep'];
-        $dados['complemento'] = $endereco['complemento'];
-        $dados['fkIdCidade'] = $endereco['fkIdCidade'];
-        return $this->cadastrar($endereco);
+
+        $dados['logradouro'] = $endereco->getLogradouro();
+        $dados['fkIdTipoLogradouro'] = $endereco->getFkIdTipoLogradouro();
+        $dados['bairro'] = $endereco->getBairro();
+        $dados['cep'] = $endereco->getCep();
+        $dados['complemento'] = $endereco->getComplemento();
+        $dados['fkIdCidade'] = $endereco->getFkIdCidade();
+        return $this->salvar($dados);
+    }
+
+    public function getEndereco($idEndereco) {
+        $criteria = new TCriteria();
+        $criteria->add(new TFilter('idEndereco', '=', $idEndereco));
+        $e = $this->selecionarColecao($criteria);
+        $endereco = new Endereco($e['IDENDERECO'][1],
+                        $e['LOGRADOURO'][1],
+                        $e['FKIDTIPOLOGRADOURO'][1],
+                        $e['BAIRRO'][1],
+                        $e['CEP'][1],
+                        $e['COMPLEMENTO'][1],
+                        $e['FKIDCIDADE'][1]);
+        return $endereco;
     }
 
 }

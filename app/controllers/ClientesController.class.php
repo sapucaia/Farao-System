@@ -23,7 +23,7 @@
 
   switch($acao){
     case 'novo':{
-      $clienteController->novo();
+      $clientesController->novo();
       break;
     }
     case 'salvar':{

@@ -3,6 +3,7 @@
 class TipoLogradouroRecord extends ManipulaBanco{
 
   private $tiposLogradouro;
+  
 
   public function listar(){
     $criteria = new TCriteria();
@@ -25,4 +26,22 @@ class TipoLogradouroRecord extends ManipulaBanco{
 }
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

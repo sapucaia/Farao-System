@@ -4,14 +4,15 @@ class TipoLogradouro{
 
   private $idTipoLogradouro;
   private $descricao;
-
-  private function __construct($idTipoLogradouro, $descricao){
+  
+  
+  public function __construct($idTipoLogradouro = '', $descricao = ''){
     $this->idTipoLogradouro = $idTipoLogradouro;
     $this->descricao = $descricao;
       
   }
 
-  public function setIdTipoLogradouro($IdTipoLogradouro){
+  public function setIdTipoLogradouro($idTipoLogradouro){
     $this->idTipoLogradouro = $idTipoLogradouro;
   }
   

@@ -16,20 +16,30 @@
       $controller->novo();
       break;
     }
+   
   }
 
   class EnderecosController{
+      
+      private $tiposLogradouroRecord;
+      private $estadosRecord;
+      private $cidadesRecord;
+      
 
     public function __construct(){
-      $tiposLogradouroRecord = new TipoLogradouroRecord;
-      $estadosRecord = new EstadoRecord;
-      $cidadesRecord = new CidadeRecord;
+        $this->tiposLogradouroRecord = new TipoLogradouroRecord();
+        $this->estadosRecord = new EstadoRecord();
+        $this->cidadesRecord = new CidadeRecord();
     }
 
     public function novo(){
-      $_REQUEST['tiposLogradouro'] = $tiposLogradouroRecord->listar();
-      $_REQUEST['estados'] = $estadosRecord->listar();
-      $_REQUEST['cidades'] = $cidadesRecord->listar();
+      $_REQUEST['tiposLogradouro'] = $this->tiposLogradouroRecord->listar();
+      $_REQUEST['estados'] = $this->estadosRecord->listar();
+      $_REQUEST['cidades'] = $this->cidadesRecord->listar();
+    }
+    
+    public function listarPorID(){
+      $_REQUEST['cidades'] = $this->cidadesRecord->listarPorID($idCidade);
     }
 
   }
