@@ -14,7 +14,7 @@
   <body>
     <form action="../../controllers/ClientesController.class.php?acao=salvar" method="post">
       <fieldset>
-        <p><label for="nomeCliente">Nome Cliente<input type="text" name="nomeCliente" /></label></p>
+        <p><label for="nomeCliente">Nome Cliente<input type="text" name="nomeCliente" /></label</p>
         <p><label for="emailCliente">email<input type="text" name="emailCliente" /></label></p>
         <p><a href="../telefone/novo.php?modulo=cliente">Adicionar Telefone</a></p>
         <p><a href="../endereco/novo.php">Adicionar Endereco</a></p>

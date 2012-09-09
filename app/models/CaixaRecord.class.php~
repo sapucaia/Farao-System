@@ -24,21 +24,8 @@ class CaixaRecord extends ManipulaBanco{
 		return $this->salvar($dados);
 	}
 
-  public function getCaixa($idCaixa){
-    $criteria = new TCriteria();
-    $criteria = add(new TFilter('idCaixa', '=', $idCaixa));
-    $c = $this->selecionarColecao($criteria);
-    $caixa = new Caixa($c['IDCAIXA'][1],
-                       $c['DATACAIXA'][1]);
-    return $caixa;
-  }
 
 
 }
-
-
-
-
-
 
 ?>

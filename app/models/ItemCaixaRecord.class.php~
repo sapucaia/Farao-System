@@ -27,7 +27,7 @@ class ItemCaixaRecord extends ManipulaBanco {
     $c = $this->selecionarColecao($criteria);
     $qtds = $c['QTDITEMCOMPRA'][1];
   return $qtds;
-  }
+
 
 }
 
